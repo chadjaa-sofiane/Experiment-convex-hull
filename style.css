@@ -1,0 +1,91 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: 247 85% 28%;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.app__wrapper {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: min(1190px, 100%);
+  margin-inline: auto;
+}
+
+.description{
+  padding: 1em;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.title{
+  font-family: "poppins","sans-serif";
+  font-size: 2rem;
+  font-weight: bold;
+  color: hsl(var(--color-primary));
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.canvas__container {
+  outline: 1px solid red;
+  margin-inline: auto;
+}
+.container {
+  width: 100%;
+  padding: 1em;
+  margin-top: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 2em;
+}
+
+.guide__text{
+  font-size: 1.25em;
+  font-weight: bold;
+  color: hsl(var(--color-primary));
+}
+.action_container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+}
+.button {
+  --background_color: var(--color-primary);
+  all: unset;
+  padding: 0.5em;
+  background: hsl(var(--background_color));
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: hsl(var(--background_color) / 0.8);
+  transform: scale(1.005);
+}
+.random_button:active{
+  transform: scale(0.995);
+}
+
+.number_input{
+  --background_color: var(--color-primary);
+  all: unset;
+  padding: 0.5em;
+  color: hsl(var(--color-primary) / 0.9);
+  font-weight: bold;
+  border: 1px solid hsl(var(--background_color) / 0.9);
+  cursor: pointer;
+}

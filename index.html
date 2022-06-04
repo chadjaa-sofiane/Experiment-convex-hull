@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oldenburg&family=Open+Sans:wght@300;400;700&family=Pavanam&family=Petit+Formal+Script&family=Poppins:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>try treat an image using javascript</title>
+  </head>
+  <body>
+    <div class="app_wrapper">
+      <header>
+        <h1 class="title">find the convex hull of a set of points</h1>
+      </header>
+      <div class="description">
+        <p>what is a convex hull ?</p>
+        <p>
+          the convex hull is the smallest convex polygon that contains all the
+          points
+        </p>
+        <br />
+      </div>
+      <div class="container">
+        <canvas
+          width="750"
+          height="350"
+          id="canvas"
+          class="canvas__container"
+        ></canvas>
+        <div class="action_container">
+          <h1>settings</h1>
+          <p class="guide__text">you can click on the canvas to set a point</p>
+          <div class="inputs_field">
+            <input
+              id="points_number_input"
+              type="number"
+              min="0"
+              max="100"
+              value="5"
+              class="number_input"
+            />
+          </div>
+
+          <div class="buttons_field">
+            <button id="random_button" class="button">random points</button>
+          </div>
+
+          <div class="buttons_field">
+            <button id="convex_hull_button" class="button">convex-hull</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js" defer type="module"></script>
+  </body>
+</html>
