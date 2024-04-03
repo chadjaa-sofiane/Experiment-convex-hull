@@ -23,7 +23,7 @@ const pointsContainer = (context) => {
     context.stroke();
   };
 
-  const drawLines = () => {
+  const drawLines = (context, canvas) => {
     points.forEach((point) => {
       if (point.next) {
         drawLine(point, point.next);
@@ -77,7 +77,7 @@ const pointsContainer = (context) => {
 
   const fire = () => {
     observers.forEach((observer) =>
-      observer(points, { mostTopPoint, mostBottomPoint })
+      observer(points, { mostTopPoint, mostBottomPoint }),
     );
     drawPoints(points);
   };

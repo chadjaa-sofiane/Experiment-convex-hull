@@ -46,7 +46,7 @@ const getAngle = (vector1, vector2) => {
 const removeElement = (arr, elem) => arr.filter((i) => i !== elem);
 
 const convex_hull = (points, { mostBottomPoint }) => {
-  if (points.lnegth < 3) return;
+  if (points.length < 3) return;
   let u = mostBottomPoint(points);
   let min = Infinity;
   let v = null;
@@ -67,11 +67,11 @@ const convex_hull = (points, { mostBottomPoint }) => {
   // // loop all untill reach the start point again
   while (v !== u) {
     s = removeElement(s, v);
-    let min = Infinity;
+    let _min = Infinity;
     for (const w of s) {
       const angle = getAngle(Vector(v.prev, v), Vector(v, w));
-      if (angle < min) {
-        min = angle;
+      if (angle < _min) {
+        _min = angle;
         v.next = w;
       }
     }
