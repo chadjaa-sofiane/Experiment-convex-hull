@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,46 +12,38 @@
     <title>try treat an image using javascript</title>
   </head>
   <body>
-    <div class="app_wrapper">
+    <div class="app__wrapper">
       <header>
-        <h1 class="title">find the convex hull of a set of points</h1>
+        <h1 class="title">Find the Convex Hull of a Set of Points</h1>
       </header>
       <div class="description">
-        <p>what is a convex hull ?</p>
+        <p>What is a convex hull?</p>
         <p>
-          the convex hull is the smallest convex polygon that contains all the
-          points
+          The convex hull is the smallest convex polygon that contains all the
+          points.
         </p>
-        <br />
       </div>
-      <div class="container">
-        <canvas
-          width="750"
-          height="350"
-          id="canvas"
-          class="canvas__container"
-        ></canvas>
-        <div class="action_container">
-          <h1>settings</h1>
-          <p class="guide__text">you can click on the canvas to set a point</p>
-          <div class="inputs_field">
-            <input
-              id="points_number_input"
-              type="number"
-              min="0"
-              max="100"
-              value="5"
-              class="number_input"
-            />
-          </div>
-
-          <div class="buttons_field">
-            <button id="random_button" class="button">random points</button>
-          </div>
-
-          <div class="buttons_field">
-            <button id="convex_hull_button" class="button">convex-hull</button>
-          </div>
+      <div class="canvas__container">
+        <canvas width="750" height="350" id="canvas"></canvas>
+      </div>
+      <div class="action__container">
+        <p class="guide__text">You can click on the canvas to set a point.</p>
+        <div class="inputs__field">
+          <input
+            id="points__number__input"
+            type="number"
+            min="0"
+            max="100"
+            value="5"
+            class="number__input"
+            placeholder="Number of Points"
+          />
+        </div>
+        <div class="buttons__field">
+          <button id="random__button" class="button">Random Points</button>
+        </div>
+        <div class="buttons__field">
+          <button id="convex__hull__button" class="button">Convex Hull</button>
         </div>
       </div>
     </div>
