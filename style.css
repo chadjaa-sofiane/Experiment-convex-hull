@@ -7,7 +7,7 @@
 }
 
 :root {
-  --color-primary: 247, 85%, 28%;
+  --color-primary: 247 85% 28%;
 }
 
 body {
@@ -45,8 +45,13 @@ body {
 .canvas__container {
   margin-top: 2rem;
   border: 1px solid hsl(var(--color-primary));
+  background-color: hsl(var(--color-primary) / 0.1);
   border-radius: 8px;
   overflow: hidden;
+}
+
+canvas {
+  width: 100%;
 }
 
 .action__container {
@@ -84,5 +89,9 @@ body {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: hsl(var(--color-primary) / 0.8);
 }
 

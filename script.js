@@ -5,6 +5,10 @@ const context = canvas.getContext("2d");
 const randomButton = document.getElementById("random_button");
 const convexHullButton = document.getElementById("convex_hull_button");
 const pointsNumberInput = document.getElementById("points_number_input");
+const canvasContainer = document.getElementById("canvas_container");
+
+canvas.width = canvasContainer.offsetWidth;
+canvas.height = canvasContainer.offsetHeight;
 
 let number = pointsNumberInput.value;
 
