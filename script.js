@@ -4,13 +4,20 @@ const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 const randomButton = document.getElementById("random_button");
 const convexHullButton = document.getElementById("convex_hull_button");
+const clearButton = document.getElementById("clear_button");
 const pointsNumberInput = document.getElementById("points_number_input");
 const canvasContainer = document.getElementById("canvas_container");
+const statusText = document.getElementById("status_text");
 
 canvas.width = canvasContainer.offsetWidth;
 canvas.height = canvasContainer.offsetHeight;
 
-let number = pointsNumberInput.value;
+let number = Number(pointsNumberInput.value);
+
+const updateStatus = (hullDrawn = false) => {
+  const suffix = hullDrawn ? "drawn" : "not drawn";
+  statusText.textContent = `Points: ${number} | Hull: ${suffix}`;
+};
 
 // a function to generate random points
 const generateRandomPoints = (number) => {
@@ -85,31 +92,51 @@ const convexHullContainer = pointsContainer(context);
 
 convexHullContainer.setPoints(generateRandomPoints(number));
 convexHullContainer.add(convex_hull);
+updateStatus();
 
 randomButton.addEventListener("click", () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
   convexHullContainer.setPoints(generateRandomPoints(number));
+  updateStatus();
 });
 
 pointsNumberInput.addEventListener("change", (e) => {
   if (e.target.value < 0) e.target.value = 0;
-  number = e.target.value;
+  number = Number(e.target.value);
   context.clearRect(0, 0, canvas.width, canvas.height);
   convexHullContainer.setPoints(generateRandomPoints(number));
+  updateStatus();
 });
 
-document.addEventListener("mousedown", (e) => {
-  const x = e.clientX - canvas.offsetLeft;
-  const y = e.clientY - canvas.offsetTop;
-  const isOutOfCanvas = x < 0 || x > canvas.width || y < 0 || y > canvas.height;
-  if (isOutOfCanvas) return;
+canvas.addEventListener("mousedown", (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
   convexHullContainer.addPoint({ x, y });
-  pointsNumberInput.value++;
-  number++;
+  pointsNumberInput.value = Number(pointsNumberInput.value) + 1;
+  number = Number(number) + 1;
+  updateStatus();
 });
 
 convexHullButton.addEventListener("click", () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
   convexHullContainer.fire();
   convexHullContainer.drawLines();
+  updateStatus(true);
+});
+
+clearButton.addEventListener("click", () => {
+  number = 0;
+  pointsNumberInput.value = 0;
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  convexHullContainer.setPoints([]);
+  updateStatus();
+});
+
+window.addEventListener("resize", () => {
+  canvas.width = canvasContainer.offsetWidth;
+  canvas.height = canvasContainer.offsetHeight;
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  convexHullContainer.setPoints(generateRandomPoints(number));
+  updateStatus();
 });

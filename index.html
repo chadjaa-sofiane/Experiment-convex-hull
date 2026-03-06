@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Oldenburg&family=Open+Sans:wght@300;400;700&family=Pavanam&family=Petit+Formal+Script&family=Poppins:wght@300;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <title>try treat an image using javascript</title>
   </head>
   <body>
     <div class="app__wrapper">
-      <header>
-        <h1 class="title">Find the Convex Hull of a Set of Points</h1>
+      <header class="hero">
+        <p class="project__note">Note: This project is very old and kept for learning.</p>
+        <h1 class="title">Bearded Convex Hull Playground</h1>
+        <p class="subtitle">Draw points and let the beard-line wrap around them.</p>
       </header>
       <div class="description">
         <p>What is a convex hull?</p>
@@ -28,7 +30,9 @@
       </div>
       <div class="action__container">
         <p class="guide__text">You can click on the canvas to set a point.</p>
+        <p id="status_text" class="status__text">Points: 0 | Hull: not drawn</p>
         <div class="inputs__field">
+          <label for="points_number_input">Random point count</label>
           <input
             id="points_number_input"
             type="number"
@@ -41,6 +45,7 @@
         </div>
         <div class="buttons__field">
           <button id="random_button" class="button">Random Points</button>
+          <button id="clear_button" class="button button--secondary">Clear</button>
         </div>
         <div class="buttons__field">
           <button id="convex_hull_button" class="button">Convex Hull</button>
